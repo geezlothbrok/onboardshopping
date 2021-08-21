@@ -1,10 +1,18 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
-export default class OnlineShopping extends Component {
-    render() {
-        return (
-            <View style = {styles.container}>
+
+const OnlineShopping = ({navigation}) => {
+    const handleOnPress =() => {
+            navigation.navigate('Cart')
+    };
+
+    const handleOnSkip = () => {
+        navigation.navigate('Payment')
+    };
+    return (
+        <View style = {styles.container}>
                 
                 <View style = {styles.textContainer}>
                     <Text style = {styles.heading}>ONLINE SHOPPING</Text>
@@ -12,8 +20,8 @@ export default class OnlineShopping extends Component {
                     
                         Lorem ipsum odor amet, consectetuer adipiscing elit. Ac purus in massa egestas mollis varius;
                         dignissim elementum. Mollis tincidunt mattis hendrerit dolor eros enim, nisi ligula ornare.
-                        Hendrerit parturient habitant pharetra rutrum gravida porttitor eros feugiat. Mollis elit
-                        sodales taciti duis praesent id. Consequat urna vitae morbi nunc congue.
+                        
+                        
                     </Text>
                 </View>
 
@@ -22,7 +30,7 @@ export default class OnlineShopping extends Component {
                 </View>
 
                 <View style = {styles.buttonContainer}>
-                   <TouchableOpacity style = {styles.button}>
+                   <TouchableOpacity style = {styles.button} onPress ={handleOnPress}>
                        <Text style = {styles.buttonText}>Next</Text>
                    </TouchableOpacity>
                 </View>
@@ -33,15 +41,16 @@ export default class OnlineShopping extends Component {
                     <Text style = {styles.round}></Text>
                     <Text style = {styles.rounds}></Text>
 
-                    <TouchableOpacity style = {styles.navSkip}>
+                    <TouchableOpacity style = {styles.navSkip} onPress = {handleOnSkip}>
                         <Text style = {styles.navPrevious}>Skip</Text>
                     </TouchableOpacity>
                 </View>
 
             </View>
-        )
-    }
-}
+    );
+};
+
+export default OnlineShopping;
 
 
 

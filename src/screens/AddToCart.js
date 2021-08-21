@@ -1,10 +1,22 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
-export default class AddToCart extends Component {
-    render() {
-        return (
-            <View style = {styles.container}>
+const AddToCart = ({navigation}) => {
+    const handleOnPress = ()=> {
+        navigation.navigate('Payment')
+    };
+
+    const handleOnPrevious = () => {
+        navigation.navigate('Online')
+    };
+
+    const handleOnSkip = () => {
+        navigation.navigate('Payment')
+    };
+    return (
+
+        <View style = {styles.container}>
                 
                 <View style = {styles.textContainer}>
                     <Text style = {styles.heading}>ADD TO CART</Text>
@@ -22,29 +34,31 @@ export default class AddToCart extends Component {
                 </View>
 
                 <View style = {styles.buttonContainer}>
-                   <TouchableOpacity style = {styles.button}>
+                   <TouchableOpacity style = {styles.button} onPress ={handleOnPress}>
                        <Text style = {styles.buttonText}>Next</Text>
                    </TouchableOpacity>
                 </View>
 
                 <View style = {styles.navContainer}>
                     <TouchableOpacity>
-                        <Text style = {styles.navPrevious}>Previous</Text>
+                        <Text style = {styles.navPrevious} onPress = {handleOnPrevious}>Previous</Text>
                     </TouchableOpacity>
 
                     <Text style = {styles.round}></Text>
                     <Text style = {styles.roundDeep}></Text>
                     <Text style = {styles.rounds}></Text>
 
-                    <TouchableOpacity style = {styles.navSkip}>
+                    <TouchableOpacity style = {styles.navSkip} onPress = {handleOnSkip}>
                         <Text style = {styles.navPrevious}>Skip</Text>
                     </TouchableOpacity>
                 </View>
 
             </View>
-        )
-    }
-}
+    );
+};
+
+export default AddToCart;
+
 
 
 

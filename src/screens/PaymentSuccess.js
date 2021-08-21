@@ -1,48 +1,55 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
-export default class PaymentSuccess extends Component {
-    render() {
-        return (
-            <View style = {styles.container}>
+const PaymentSuccess = ({navigation}) => {
+    handleOnPress = () => {
+        navigation.navigate('Online')
+    };
+
+    const handleOnPrevious = () => {
+        navigation.navigate('Cart')
+    };
+    return (
+        <View style = {styles.container}>
                 
-                <View style = {styles.textContainer}>
-                    <Text style = {styles.heading}>PAYMENT SUCCESSFUL</Text>
-                    <Text style = {styles.textInfo}>
-                    
-                        Lorem ipsum odor amet, consectetuer adipiscing elit. Ac purus in massa egestas mollis varius;
-                        dignissim elementum. Mollis tincidunt mattis hendrerit dolor eros enim, nisi ligula ornare.
-                        Hendrerit parturient habitant pharetra rutrum gravida porttitor eros feugiat. Mollis elit
-                        sodales taciti duis praesent id. Consequat urna vitae morbi nunc congue.
-                    </Text>
-                </View>
+        <View style = {styles.textContainer}>
+            <Text style = {styles.heading}>PAYMENT SUCCESSFUL</Text>
+            <Text style = {styles.textInfo}>
+            
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Ac purus in massa egestas mollis varius;
+                dignissim elementum. Mollis tincidunt mattis hendrerit dolor eros enim, nisi ligula ornare.
+                Hendrerit parturient habitant pharetra rutrum gravida porttitor eros feugiat. Mollis elit
+                sodales taciti duis praesent id. Consequat urna vitae morbi nunc congue.
+            </Text>
+        </View>
 
-                <View style = {styles.imageContainer}>
-                    <Image style = {styles.image} source = {require('../../assets/payment-successful.png')}></Image>
-                </View>
+        <View style = {styles.imageContainer}>
+            <Image style = {styles.image} source = {require('../../assets/payment-successful.png')}></Image>
+        </View>
 
-                <View style = {styles.buttonContainer}>
-                   <TouchableOpacity style = {styles.button}>
-                       <Text style = {styles.buttonText}>Get Started</Text>
-                   </TouchableOpacity>
-                </View>
+        <View style = {styles.buttonContainer}>
+           <TouchableOpacity style = {styles.button} onPress = {handleOnPress} >
+               <Text style = {styles.buttonText}>Get Started</Text>
+           </TouchableOpacity>
+        </View>
 
-                <View style = {styles.navContainer}>
-                    <TouchableOpacity>
-                        <Text style = {styles.navPrevious}>Previous</Text>
-                    </TouchableOpacity>
+        <View style = {styles.navContainer}>
+            <TouchableOpacity onPress = {handleOnPrevious}>
+                <Text style = {styles.navPrevious}>Previous</Text>
+            </TouchableOpacity>
 
-                    <Text style = {styles.round}></Text>
-                    <Text style = {styles.rounds}></Text>
-                    <Text style = {styles.roundDeep}></Text>
+            <Text style = {styles.round}></Text>
+            <Text style = {styles.rounds}></Text>
+            <Text style = {styles.roundDeep}></Text>
 
-                    
-                </View>
+            
+        </View>
 
-            </View>
-        )
-    }
-}
+    </View>
+    );
+};
+
+export default PaymentSuccess;
 
 
 
